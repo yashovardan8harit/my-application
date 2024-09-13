@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Application</title>
+</head>
+<body>
+    <h1>Welcome to the Demo App</h1>
+    <p>This is a simple demo application to test AWS deployment.</p>
+    <button onclick="fetchDynamicContent()">Get Dynamic Content</button>
+    <p id="dynamic-content"></p>
+
+    <script>
+        function fetchDynamicContent() {
+            fetch('/dynamic')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('dynamic-content').innerText = 
+                        `Message: ${data.message}, Timestamp: ${data.timestamp}`;
+                });
+        }
+    </script>
+</body>
+</html>
